@@ -37,15 +37,15 @@ class KMeans:
 
     def fit(self, X: np.array):
 
-        self.centeroids = self.centeroids or kmeans.initialize_centeroids(X)
-        self.labels = np.array([kmeans.assign_centeroid(point, self.centeroids) for point in X])
-        self.error = kmeans.total_error(self.centeroids, X, self.labels)
+        self.centeroids = self.centeroids or self.initialize_centeroids(X)
+        self.labels = np.array([self.assign_centeroid(point, self.centeroids) for point in X])
+        self.error = self.total_error(self.centeroids, X, self.labels)
 
         for epoch in range(self.n_iterations):
-            self.labels = np.array([kmeans.assign_centeroid(point, self.centeroids) for point in X])
-            self.centeroids = kmeans.calculate_centeroids(X, self.labels)
+            self.labels = np.array([self.assign_centeroid(point, self.centeroids) for point in X])
+            self.centeroids = self.calculate_centeroids(X, self.labels)
 
-            error = kmeans.total_error(self.centeroids, X, self.labels)
+            error = self.total_error(self.centeroids, X, self.labels)
             if error >= self.error:
                 self.total_iterations = epoch
                 self.error = error
