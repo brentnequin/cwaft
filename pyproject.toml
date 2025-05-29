@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "cwaft"
 version = "0.1.2"
-description = "A Python library of mathematical tools and algorithms."
+description = "Just a Python library containing a bunch of code and stuff."
 readme = "README.md"
 authors = ["brentnequin <brentnequin@gmail.com>"]
 license = "MIT"
